@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>FitLens · Add progress update</title>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">FitLens</a>
+  <nav>
+    <a href="index.html" >Timeline</a>
+    <a href="upload.html" aria-current="page">Upload</a>
+  </nav>
+</header>
+<main class="page narrow">
+  <h1>Add progress update</h1>
+  <p class="sub" id="who"></p>
+
+  <p id="notice" class="notice" hidden></p>
+
+  <form id="uploadForm" novalidate>
+    <label class="drop" id="drop">
+      <input type="file" id="file" accept="image/*,video/*">
+      <span class="drop-title">Drag a photo or video here, or browse</span>
+      <span class="drop-hint">JPG, PNG or MP4</span>
+    </label>
+
+    <div class="file-chip" id="fileChip" hidden>
+      <div><strong id="chipName"></strong><span id="chipSize"></span></div>
+      <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+      <span class="pct" id="pct"></span>
+    </div>
+
+    <div class="field-row">
+      <label class="field grow">Caption
+        <input name="caption" maxlength="120" placeholder="Week 6 squat depth">
+      </label>
+      <label class="field week">Week
+        <input name="week" id="week" type="number" min="1" max="52" value="1">
+      </label>
+    </div>
+
+    <fieldset class="field">
+      <legend>Type</legend>
+      <div class="segmented">
+        <label><input type="radio" name="mediaType" value="photo" checked><span>Photo</span></label>
+        <label><input type="radio" name="mediaType" value="video"><span>Video</span></label>
+      </div>
+    </fieldset>
+
+    <label class="field">Share with
+      <select><option id="coachOption">My coach</option></select>
+    </label>
+
+    <div class="form-foot">
+      <p class="private">Only you and your coach can see this.</p>
+      <button class="btn btn-primary" id="submitBtn" type="submit">Upload</button>
+    </div>
+  </form>
+</main>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>

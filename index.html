@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>FitLens · Timeline</title>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">FitLens</a>
+  <nav>
+    <a href="index.html" aria-current="page">Timeline</a>
+    <a href="upload.html" >Upload</a>
+  </nav>
+</header>
+<main class="page">
+  <div class="page-head">
+    <div>
+      <h1 id="clientName">Client</h1>
+      <p class="sub" id="summary">Loading…</p>
+    </div>
+    <button class="btn btn-outline" id="compareBtn" type="button">Compare first and latest week</button>
+  </div>
+
+  <p id="notice" class="notice" hidden></p>
+
+  <div class="toolbar">
+    <div class="chips" role="group" aria-label="Filter by type">
+      <button class="chip" data-filter="all" aria-pressed="true" type="button">All</button>
+      <button class="chip" data-filter="photo" aria-pressed="false" type="button">Photos</button>
+      <button class="chip" data-filter="video" aria-pressed="false" type="button">Videos</button>
+    </div>
+    <label class="sort">Sort
+      <select id="sort">
+        <option value="newest">Latest week first</option>
+        <option value="oldest">Week 1 first</option>
+      </select>
+    </label>
+  </div>
+
+  <section id="grid" class="grid" aria-live="polite"></section>
+</main>
+
+<dialog id="deleteDialog">
+  <h2>Delete this upload?</h2>
+  <p>The file and its details will be permanently removed for you and your coach.</p>
+  <div class="dialog-actions">
+    <button class="btn btn-outline" id="cancelDelete" type="button">Cancel</button>
+    <button class="btn btn-danger" id="confirmDelete" type="button">Delete</button>
+  </div>
+</dialog>
+
+<dialog id="compareDialog" class="wide">
+  <h2>Progress comparison</h2>
+  <div id="compareBody" class="compare"></div>
+  <div class="dialog-actions"><button class="btn btn-outline" id="closeCompare" type="button">Close</button></div>
+</dialog>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/timeline.js"></script>
+</body>
+</html>
