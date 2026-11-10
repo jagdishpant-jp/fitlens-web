@@ -1,0 +1,30 @@
+# FitLens front end - CI build pipeline (COM682 CW2, Lab 10 pattern)
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    echo "Building FitLens front end..."
+    echo "Files in repository:"
+    ls -R
+  displayName: 'List FitLens website files'
+
+- task: CopyFiles@2
+  displayName: 'Copy website files to staging'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **/*.html
+      **/*.css
+      **/*.js
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish FitLens build artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'fitlens-web'
+    publishLocation: 'Container'
