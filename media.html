@@ -5,58 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <title>FitLens · Upload details</title>
+  <title>FitLens · Check-in</title>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="index.html">FitLens</a>
-  <nav>
-    <a href="index.html" aria-current="page">Timeline</a>
-    <a href="upload.html" >Upload</a>
-  </nav>
-</header>
-<main class="page">
-  <a class="back" href="index.html">Back to timeline</a>
-  <h1 id="title">Loading…</h1>
-  <p id="notice" class="notice" hidden></p>
-
-  <div class="detail">
-    <div>
-      <div class="viewer" id="viewer"></div>
-      <ul class="facts" id="facts"></ul>
-      <p class="private">Private file, shown through a link that expires after 15 minutes.</p>
-    </div>
-
-    <form class="panel" id="editForm">
-      <h2>Edit details</h2>
-      <label class="field">Caption
-        <input name="caption" maxlength="120">
-      </label>
-      <label class="field">Coach comment
-        <textarea name="comment" rows="5" placeholder="Feedback from your coach"></textarea>
-      </label>
-      <div class="panel-actions">
-        <button class="btn btn-primary" id="saveBtn" type="submit">Save changes</button>
-        <button class="btn btn-danger-outline" id="deleteBtn" type="button">Delete</button>
+<header id="site-header"></header>
+<main>
+  <section class="app-head"><div class="wrap">
+    <a class="back" href="dashboard.html">← Back to progress</a>
+    <h1 id="title">Loading…</h1>
+    <p class="sub" id="weekLine"></p>
+  </div></section>
+  <section class="app-body"><div class="wrap">
+    <p id="notice" class="notice" hidden></p>
+    <div class="detail">
+      <div>
+        <div class="viewer" id="viewer"></div>
+        <ul class="facts" id="facts"></ul>
+        <p class="private" style="margin-top:0.9rem"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Private file, shown through a link that expires after 15 minutes.</p>
       </div>
-      <p class="meta" id="edited"></p>
-    </form>
-  </div>
+      <div class="side">
+        <section class="form-card">
+          <h2>Coach feedback</h2>
+          <div class="bubble-wrap">
+            <div class="coach-avatar" id="coachInitials">JP</div>
+            <div class="bubble" id="bubble"><span class="who-name" id="coachName"></span><p id="bubbleText"></p></div>
+          </div>
+          <div id="translateRow" hidden>
+            <div class="translate-controls">
+              <select id="lang" aria-label="Translate into">
+                <option value="hi">Hindi</option><option value="ne">Nepali</option><option value="fr">French</option>
+                <option value="es">Spanish</option><option value="de">German</option><option value="pl">Polish</option>
+                <option value="ar">Arabic</option><option value="zh-Hans">Chinese (Simplified)</option><option value="en">English</option>
+              </select>
+              <button class="btn btn-black" id="translateBtn" type="button">Translate</button>
+            </div>
+            <p class="translated" id="translated" hidden></p>
+            <p class="panel-note">Translation by Azure AI Translator</p>
+          </div>
+        </section>
+        <form class="form-card lime-card" id="editForm">
+          <h2 id="editTitle">Edit check-in</h2>
+          <div id="captionEdit"><label class="field">Caption<input name="caption" maxlength="120"></label></div>
+          <div id="captionRead" class="field" hidden>Caption<span class="readonly" id="captionText"></span></div>
+          <div id="commentEdit"><label class="field">Coach comment<textarea name="comment" rows="4" placeholder="Write feedback for your client"></textarea></label></div>
+          <div class="panel-actions">
+            <button class="btn btn-black" id="saveBtn" type="submit">Save changes</button>
+            <button class="btn btn-danger-outline" id="deleteBtn" type="button">Delete</button>
+          </div>
+          <p class="meta" id="edited"></p>
+        </form>
+      </div>
+    </div>
+  </div></section>
 </main>
-
+<footer id="site-footer"></footer>
 <dialog id="deleteDialog">
-  <h2>Delete this upload?</h2>
+  <h2>Delete this check-in?</h2>
   <p>The file and its details will be permanently removed for you and your coach. This can’t be undone.</p>
   <div class="dialog-actions">
     <button class="btn btn-outline" id="cancelDelete" type="button">Cancel</button>
     <button class="btn btn-danger" id="confirmDelete" type="button">Delete</button>
   </div>
 </dialog>
-
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
+<script src="js/layout.js"></script>
 <script src="js/media.js"></script>
 </body>
 </html>

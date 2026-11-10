@@ -1,3 +1,5 @@
+const user = FitLensSession.require();
+if (user && user.role === "coach") location.replace("dashboard.html");
 // Upload page: IUPS (create)
 const fileInput = document.getElementById("file");
 const drop = document.getElementById("drop");
@@ -23,6 +25,9 @@ function pick(file) {
   document.getElementById("chipName").textContent = file.name;
   document.getElementById("chipSize").textContent = formatSize(file.size);
   chip.hidden = false;
+  const url = URL.createObjectURL(file);
+  document.getElementById("preview").innerHTML = file.type.startsWith("video/")
+    ? `<video src="${url}" muted></video>` : `<img src="${url}" alt="">`;
   bar.style.width = "0%";
   pct.textContent = "";
   form.mediaType.value = file.type.startsWith("video/") ? "video" : "photo";
@@ -57,10 +62,10 @@ form.addEventListener("submit", async (e) => {
   try {
     await FitLensAPI.upload(fd, (p) => { bar.style.width = `${p}%`; pct.textContent = `${p}%`; });
     pct.textContent = "Done";
-    location.href = "index.html?uploaded=1";
+    location.href = "dashboard.html?uploaded=1";
   } catch (err) {
     showNotice(notice, err.message, "error");
     submitBtn.disabled = false;
-    submitBtn.textContent = "Upload";
+    submitBtn.innerHTML = 'Upload <span class="arrow">→</span>';
   }
 });

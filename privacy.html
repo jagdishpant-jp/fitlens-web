@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>FitLens · Privacy and data</title>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="app-head"><div class="wrap">
+    <h1>Privacy <em>&amp; data</em></h1>
+    <p class="sub">Progress photos are personal. Here is how FitLens protects them.</p>
+  </div></section>
+  <section class="app-body"><div class="wrap prose">
+    <h2>Who can see your media</h2>
+    <p>Only you and your coach. Files are stored in a private Azure Blob Storage container with no public access. When you open a photo or video, FitLens creates a read-only link that expires after 15 minutes.</p>
+    <h2>Where your data is stored</h2>
+    <p>Media and its details are stored in Microsoft Azure data centres in Europe (France Central), so data stays under UK and EU GDPR protection. Files are encrypted at rest.</p>
+    <h2>What we store</h2>
+    <ul>
+      <li>The photo or video you upload</li>
+      <li>Its caption, training week, upload date and file size</li>
+      <li>Your coach’s comments</li>
+    </ul>
+    <h2>Deleting your data</h2>
+    <p>Use Delete on any check-in. FitLens removes both the file from storage and its record from the database. This cannot be undone.</p>
+    <h2>Consent</h2>
+    <p>Body images can count as health data. Only upload images you are comfortable sharing with your coach, and you can withdraw them at any time by deleting them.</p>
+    <h2>Prototype notice</h2>
+    <p>This is a university prototype (COM682). Sign-in is simulated by choosing a role; a production version would use Microsoft Entra ID authentication.</p>
+  </div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+</body>
+</html>

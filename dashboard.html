@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>FitLens · Progress</title>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="app-head"><div class="wrap app-head-row">
+    <div>
+      <h1 id="pageTitle">Progress</h1>
+      <p class="sub" id="pageSub"></p>
+    </div>
+    <button class="btn btn-primary" id="compareBtn" type="button">Compare first and latest <span class="arrow">⇄</span></button>
+  </div></section>
+
+  <section class="app-body"><div class="wrap">
+    <p id="notice" class="notice" hidden></p>
+
+    <section class="journey" id="journey" hidden>
+      <div class="journey-head"><h2>Progress journey</h2><span id="journeyRange"></span></div>
+      <div class="track" id="track"></div>
+    </section>
+
+    <section id="insights" class="insights" aria-label="Progress insights" hidden></section>
+    <p class="powered" id="powered" hidden>Insights calculated by an Azure Function</p>
+
+    <div class="toolbar">
+      <h2>All check-ins</h2>
+      <div class="toolbar-right">
+        <div class="chips" role="group" aria-label="Filter by type">
+          <button class="chip" data-filter="all" aria-pressed="true" type="button">All</button>
+          <button class="chip" data-filter="photo" aria-pressed="false" type="button">Photos</button>
+          <button class="chip" data-filter="video" aria-pressed="false" type="button">Videos</button>
+        </div>
+        <label class="sort"><select id="sort" aria-label="Sort">
+          <option value="newest">Latest week first</option>
+          <option value="oldest">Week 1 first</option>
+        </select></label>
+      </div>
+    </div>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </div></section>
+</main>
+<footer id="site-footer"></footer>
+
+<dialog id="deleteDialog">
+  <h2>Delete this check-in?</h2>
+  <p>The file and its details will be permanently removed for you and your coach.</p>
+  <div class="dialog-actions">
+    <button class="btn btn-outline" id="cancelDelete" type="button">Cancel</button>
+    <button class="btn btn-danger" id="confirmDelete" type="button">Delete</button>
+  </div>
+</dialog>
+<dialog id="compareDialog" class="wide">
+  <h2>Progress comparison</h2>
+  <div id="compareBody" class="compare"></div>
+  <div class="dialog-actions"><button class="btn btn-outline" id="closeCompare" type="button">Close</button></div>
+</dialog>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/timeline.js"></script>
+</body>
+</html>

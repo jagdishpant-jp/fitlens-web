@@ -5,63 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <title>FitLens · Timeline</title>
+  <title>FitLens · Private progress tracking for coaches and clients</title>
+  <meta name="description" content="FitLens lets personal trainers and their online clients share progress photos and form-check videos privately.">
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="index.html">FitLens</a>
-  <nav>
-    <a href="index.html" aria-current="page">Timeline</a>
-    <a href="upload.html" >Upload</a>
-  </nav>
-</header>
-<main class="page">
-  <div class="page-head">
-    <div>
-      <h1 id="clientName">Client</h1>
-      <p class="sub" id="summary">Loading…</p>
+<header id="site-header"></header>
+<main>
+  <section class="hero">
+    <div class="hero-panels" aria-hidden="true">
+      <div class="panel orange"><img src="img/week1.jpg" alt=""></div>
+      <div class="panel blue"><img src="img/week5.jpg" alt=""></div>
+      <div class="panel orange"><img src="img/week9.jpg" alt=""></div>
     </div>
-    <button class="btn btn-outline" id="compareBtn" type="button">Compare first and latest week</button>
+    <div class="hero-copy">
+      <h1>See every rep<br>of progress</h1>
+      <div class="hero-sub">
+        <p>Private progress photos and form-check videos, shared only between you and your coach.</p>
+        <a class="btn btn-primary" href="login.html">Start tracking <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Upload</span><span>Get coached</span><span>Track progress</span><span>Stay private</span>
+      <span>Upload</span><span>Get coached</span><span>Track progress</span><span>Stay private</span>
+    </div>
   </div>
 
-  <p id="notice" class="notice" hidden></p>
-
-  <div class="toolbar">
-    <div class="chips" role="group" aria-label="Filter by type">
-      <button class="chip" data-filter="all" aria-pressed="true" type="button">All</button>
-      <button class="chip" data-filter="photo" aria-pressed="false" type="button">Photos</button>
-      <button class="chip" data-filter="video" aria-pressed="false" type="button">Videos</button>
+  <section class="section-dark">
+    <div class="wrap">
+      <h2 class="big-title">How FitLens works</h2>
+      <p class="lead">Three steps, no more photos lost in chat apps.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3>Upload a check-in</h3><p>Add a progress photo or a short form-check video from your phone, tagged with your training week.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Your coach reviews</h3><p>Your coach sees every client’s timeline in one place and replies with feedback on each upload.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Watch the change</h3><p>Compare week 1 with your latest week side by side and see your consistency at a glance.</p></div>
+      </div>
     </div>
-    <label class="sort">Sort
-      <select id="sort">
-        <option value="newest">Latest week first</option>
-        <option value="oldest">Week 1 first</option>
-      </select>
-    </label>
-  </div>
+  </section>
 
-  <section id="grid" class="grid" aria-live="polite"></section>
+  <section class="section-light">
+    <div class="wrap">
+      <h2 class="big-title">Built for coaching</h2>
+      <div class="features">
+        <div class="feature"><h3>Private by design</h3><div><p>Media lives in a private container and opens through links that expire after 15 minutes.</p><p class="azure">Azure Blob Storage · SAS</p></div></div>
+        <div class="feature"><h3>Coach feedback</h3><div><p>Comments sit right next to each photo or video, so advice is never lost.</p><p class="azure">Logic Apps REST API</p></div></div>
+        <div class="feature"><h3>Progress insights</h3><div><p>Automatic stats on check-ins, weeks tracked and consistency.</p><p class="azure">Azure Functions</p></div></div>
+        <div class="feature"><h3>Any language</h3><div><p>Translate coach feedback into Hindi, Nepali, French and more in one click.</p><p class="azure">Azure AI Translator</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light" style="padding-top:0">
+    <div class="wrap split">
+      <img src="img/week9.jpg" alt="Week 9 squat at full depth">
+      <div>
+        <h2 class="big-title">Progress you can see</h2>
+        <ul class="checklist">
+          <li>A visual journey from your first check-in to today</li>
+          <li>Side-by-side comparison of your first and latest week</li>
+          <li>Delete any upload at any time: the file and its record are removed</li>
+          <li>Works on any phone or laptop browser</li>
+        </ul>
+        <a class="btn btn-black" href="login.html">Open FitLens <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="cta-box">
+        <h2>Your first check-in starts today</h2>
+        <p>Log in as a client to upload, or as a coach to review your clients’ progress.</p>
+        <a class="btn btn-black" href="login.html">Log in to FitLens <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
 </main>
-
-<dialog id="deleteDialog">
-  <h2>Delete this upload?</h2>
-  <p>The file and its details will be permanently removed for you and your coach.</p>
-  <div class="dialog-actions">
-    <button class="btn btn-outline" id="cancelDelete" type="button">Cancel</button>
-    <button class="btn btn-danger" id="confirmDelete" type="button">Delete</button>
-  </div>
-</dialog>
-
-<dialog id="compareDialog" class="wide">
-  <h2>Progress comparison</h2>
-  <div id="compareBody" class="compare"></div>
-  <div class="dialog-actions"><button class="btn btn-outline" id="closeCompare" type="button">Close</button></div>
-</dialog>
-
+<footer id="site-footer"></footer>
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
-<script src="js/timeline.js"></script>
+<script src="js/layout.js"></script>
+<script>
+  if (new URLSearchParams(location.search).has("loggedout")) {
+    const n = document.createElement("p");
+    n.className = "notice notice-success"; n.textContent = "You have been logged out.";
+    n.style.margin = "0"; document.querySelector("main").prepend(n);
+  }
+</script>
 </body>
 </html>
