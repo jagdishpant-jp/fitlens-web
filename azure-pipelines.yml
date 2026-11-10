@@ -20,6 +20,7 @@ steps:
       **/*.html
       **/*.css
       **/*.js
+            **/*.jpg
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
